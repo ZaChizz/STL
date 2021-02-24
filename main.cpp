@@ -1,6 +1,28 @@
 #include <iostream>
+#include "CustomVector.cpp"
 
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    CustomVector<std::string>* lst = new CustomVector<std::string>();
+
+    lst->push_back("alpha");
+    lst->push_back("bravo");
+    lst->push_back("charlie");
+    lst->push_back("delta");
+
+    for ( int i = 0; i < lst->size(); i++ ) {
+        std::cout << (*lst)[i] << std::endl;
+    }
+
+    std::cout << "--------" << std::endl;
+
+    lst->pop_back();
+    lst->pop_back();
+
+    for ( int i = 0; i < lst->size(); i++ ) {
+        std::cout << (*lst)[i] << std::endl;
+    }
+
+    delete lst;
+
     return 0;
 }
